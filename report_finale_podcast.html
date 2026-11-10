@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <title>Report Finale Integrato - Podcast Le Troiane</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 1250px; margin: 2em auto; padding: 0 1em; line-height: 1.6; color: #333; }
+        h1 { color: #8B0000; border-bottom: 2px solid #8B0000; padding-bottom: 0.3em; }
+        h2 { color: #555; margin-top: 2em; border-bottom: 1px solid #ddd; padding-bottom: 0.3em; }
+        img { max-width: 100%; border: 1px solid #ccc; margin: 1em 0; display: block; }
+        
+        .kpi-container { display: flex; gap: 1em; margin: 1.5em 0; flex-wrap: wrap; }
+        .kpi-card { background: #fdfaf6; border: 1px solid #e3dcd2; border-left: 4px solid #8B0000; padding: 1em; flex: 1; min-width: 200px; border-radius: 4px; }
+        .kpi-value { font-size: 1.5em; font-weight: bold; color: #8B0000; margin-top: 0.2em; }
+        .kpi-label { font-size: 0.85em; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .commentary { background: #f4f6f8; border-left: 4px solid #4a6fa5; padding: 1.2em; margin: 1.5em 0; border-radius: 4px; }
+        
+        .search-container { margin: 1.5em 0 1em 0; }
+        .search-input { width: 100%; max-width: 400px; padding: 0.6em 1em; font-size: 0.9em; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+
+        .script-card { background: #fff; border: 1px solid #dcd6cd; border-left: 5px solid #8B0000; border-radius: 6px; padding: 1.2em; margin-bottom: 1.5em; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .script-card h3 { margin-top: 0; color: #8B0000; font-size: 1.1em; border-bottom: 1px solid #eee; padding-bottom: 0.5em; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.8em; margin-top: 0.8em; }
+        .card-item { font-size: 0.85em; background: #faf8f5; padding: 0.5em 0.8em; border-radius: 4px; border: 1px solid #f0eae1; }
+        .card-item strong { color: #444; display: inline-block; margin-right: 0.4em; }
+        .card-item span { color: #222; }
+
+        .intro { background: #fdfaf6; padding: 1em; border-left: 4px solid #8B0000; margin-bottom: 1.5em; }
+
+        @media print {
+            body { max-width: 100%; margin: 0; padding: 0; }
+            .search-container { display: none; }
+            .chart-block { page-break-inside: avoid; }
+            .script-card { page-break-inside: avoid; box-shadow: none; border: 1px solid #aaa; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Report Finale Integrato: Podcast "Le Troiane"</h1>
+    
+    <div class="intro">
+        <p><strong>Panoramica del progetto:</strong> Dossier di sintesi metodologica che integra l'intera gamma di analisi stilometriche, quantitative e qualitative condotta sui 15 script di podcast ispirati a <em>Le Troiane</em> di Euripide.</p>
+    </div>
+
+    <div class="kpi-container">
+        <div class="kpi-card">
+            <div class="kpi-label">Script Totali Analizzati</div>
+            <div class="kpi-value">15</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Format Predominante</div>
+            <div class="kpi-value">Divulgativo</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Media Indice Gulpease</div>
+            <div class="kpi-value">63.7</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-label">Media Parole per Script</div>
+            <div class="kpi-value">775</div>
+        </div>
+    </div>
+
+    <div class="commentary">
+        <h3 style="margin-top:0; color:#2c3e50;">Discussione e Sintesi dei Risultati</h3>
+        <p>L'analisi combinata del corpus evidenzia una chiara correlazione tra le scelte stilistiche strutturali e la tipologia di format adottata. Gli script di carattere divulgativo privilegiano una maggiore accessibilità testuale e indici di leggibilità elevati per intercettare un pubblico generalista. Di contro, le varianti intimiste e di reportage mostrano una maggiore densità lessicale e variazioni strutturali orientate alla densità drammaturgica e all'impatto emotivo, confermando la versatilità della riscrittura del testo euripideo.</p>
+    </div>
+
+    <div class="chart-block"><h2>Analisi Qualitativa: Distribuzione dei Format</h2><img src="distribuzione_format.png" alt="Grafico distribuzione format"></div><div class="chart-block"><h2>Analisi Stilometrica: Indice Gulpease</h2><img src="confronto_gulpease.png" alt="Grafico Gulpease"></div><div class="chart-block"><h2>Analisi Stilometrica: Type-Token Ratio (TTR)</h2><img src="confronto_ttr.png" alt="Grafico TTR"></div><div class="chart-block"><h2>Analisi Quantitativa: Lunghezza / N. Parole</h2><img src="confronto_parole.png" alt="Grafico Parole"></div>
+
+    <h2>Dossier Analitico Completo per Script (Tutte le Variabili)</h2>
+    
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" onkeyup="filtraSchede()" placeholder="Filtra per ID, Format, Target o parola chiave...">
+    </div>
+
+    <div id="cardsContainer">
+        <div class="script-card" data-search-text="script_01 script_troiane_1_divulgativo_pulito.docx divulgativo pubblico generalista, studenti e appassionati di storia, teatro e cultura classica alla ricerca di contenuti accessibili ma rigorosi. coinvolgente, diretto, riflessivo e appassionato, con uno stile divulgativo e immersivo basato su narrazione visiva e ritmo incalzante. impostazione cinematografica e contestuale (hook immersivo nel 415 a.c., analessi storica sull'eccidio di melo, analisi drammaturgica dell'opera di euripide e chiusura a cerchio con riflessione universale). ipocrisia e violenza dell'imperialismo ateniese rispetto agli ideali democratici, uso del mito tragico come specchio politico contemporaneo e critica al potere, la prospettiva dei vinti: il costo umano della guerra su donne e bambini, nemesi storica e fallimento etico dei vincitori parafrasi diretta ed enfatica del dialogo dei melii di tucidide ('il forte fa quello che ha il potere di fare, e il debole subisce ciò che deve subire') e dialoghi fittizi/retorici attribuiti a euripide verso la polis. metafora ('uno schiaffo in piena faccia', 'un pugno nello stomaco sferrato con la precisione di un chirurgo', 'ingranaggi del potere'), anafora ed enumerazione ('c'è ecuba... c'è cassandra... c'è andromaca...'), domanda retorica ('capite adesso il corto circuito?'), antitesi ('vincitori gloriosi vs vittime inermi', 'giustizia vs legge della forza') estremamente efficace per il format podcast divulgativo: la narrazione traduce nozioni storico-filologiche complesse in immagini vivide e accessibili senza banalizzare il testo originale. 907 475 0.5237 64.55 10.43 5.0 22.16 12.68 9.48 5.62">
+<h3>Scheda Analisi: script_01</h3>
+<div class="card-grid">
+<div class="card-item"><strong>ID Script:</strong> <span>script_01</span></div>
+<div class="card-item"><strong>Nome File:</strong> <span>script_troiane_1_divulgativo_pulito.docx</span></div>
+<div class="card-item"><strong>Format:</strong> <span>Divulgativo</span></div>
+<div class="card-item"><strong>Target Pubblico:</strong> <span>Pubblico generalista, studenti e appassionati di storia, teatro e cultura classica alla ricerca di contenuti accessibili ma rigorosi.</span></div>
+<div class="card-item"><strong>Tono di Voce:</strong> <span>Coinvolgente, diretto, riflessivo e appassionato, con uno stile divulgativo e immersivo basato su narrazione visiva e ritmo incalzante.</span></div>
+<div class="card-item"><strong>Struttura Narrativa:</strong> <span>Impostazione cinematografica e contestuale (hook immersivo nel 415 a.C., analessi storica sull'eccidio di Melo, analisi drammaturgica dell'opera di Euripide e chiusura a cerchio con riflessione universale).</span></div>
+<div class="card-item"><strong>Temi Chiave:</strong> <span>Ipocrisia e violenza dell'imperialismo ateniese rispetto agli ideali democratici, Uso del mito tragico come specchio politico contemporaneo e critica al potere, La prospettiva dei vinti: il costo umano della guerra su donne e bambini, Nemesi storica e fallimento etico dei vincitori</span></div>
+<div class="card-item"><strong>Citazioni Testuali:</strong> <span>Parafrasi diretta ed enfatica del dialogo dei Melii di Tucidide ('il forte fa quello che ha il potere di fare, e il debole subisce ciò che deve subire') e dialoghi fittizi/retorici attribuiti a Euripide verso la polis.</span></div>
+<div class="card-item"><strong>Figure Retoriche:</strong> <span>Metafora ('uno schiaffo in piena faccia', 'un pugno nello stomaco sferrato con la precisione di un chirurgo', 'ingranaggi del potere'), Anafora ed enumerazione ('C'è Ecuba... C'è Cassandra... C'è Andromaca...'), Domanda retorica ('Capite adesso il corto circuito?'), Antitesi ('vincitori gloriosi vs vittime inermi', 'giustizia vs legge della forza')</span></div>
+<div class="card-item"><strong>Valutazione Efficacia:</strong> <span>Estremamente efficace per il format podcast divulgativo: la narrazione traduce nozioni storico-filologiche complesse in immagini vivide e accessibili senza banalizzare il testo originale.</span></div>
+<div class="card-item"><strong>Totale Parole (Tokens):</strong> <span>907</span></div>
+<div class="card-item"><strong>Vocabolario Unico (Types):</strong> <span>475</span></div>
+<div class="card-item"><strong>Ricchezza Lessicale (TTR):</strong> <span>0.5237</span></div>
+<div class="card-item"><strong>Indice Gulpease:</strong> <span>64.55</span></div>
+<div class="card-item"><strong>Parole/Frase (Media):</strong> <span>10.43</span></div>
+<div class="card-item"><strong>Lunghezza Media Parola:</strong> <span>5.0</span></div>
+<div class="card-item"><strong>% Sostantivi:</strong> <span>22.16</span></div>
+<div class="card-item"><strong>% Verbi:</strong> <span>12.68</span></div>
+<div class="card-item"><strong>% Aggettivi:</strong> <span>9.48</span></div>
+<div class="card-item"><strong>% Pronomi:</strong> <span>5.62</span></div>
+</div>
+</div>
+<div class="script-card" data-search-text="script_02 script_troiane_1_intimista_pulito.docx intimistico appassionati di teatro classico, letteratura drammatica, podcast narrativi d'autore e ascoltatori interessati all'approfondimento psicologico dei miti antichi e alle tematiche del lutto. intimista, sussurrato, dolente e viscerale; evolve da una confessione faticosa e roca a una fermezza stoica, tragica e solenne. monologo interiore a progressione drammatica: risveglio fisico nel fango, rievocazione nostalgica e straziata dei familiari caduti, meditazione filosofica sull'evoluzione del dolore (dall'urlo al silenzio), epifania della memoria come dovere testimoniale e accettazione finale del destino di schiava. metamorfosi e metabolizzazione del dolore (dalla disperazione urlata alla cenere), memoria e testimonianza come estremo baluardo di resistenza identitaria, tragedia della sconfitta bellica e perdita totale dello status e degli affetti rielaborazione fedele e drammatizzata del prologo e dei lamenti euripidei di ecuba (ad es. 'sollevati... vecchio corpo. solleva il collo dal fango', 'non c'è più iliade', il richiamo al sangue di priamo sull'altare di zeus e allo scempio del corpo di ettore). metafora ('mare di cenere fredda', 'il mio dolore è l'ultimo monumento che resta a troia', 'sarò quel vento'), similitudine ('come un vaso di terracotta lasciato cadere sul marmo', 'tremano come quelle di una bambina'), anafora ('non c'è più...', 'guardami, ilio. guardami, terra di troia', 'vieni, sofferenza. vieni, schiavitù'), apostrofe ('guardami, ilio', 'priamo... mio sposo', 'vieni, schiavitù') perfettamente aderente al format intimista dichiarato: la regia sonora minimale, le precise didascalie attoriali (sussurri, pause lunghe, voce spezzata) e la scrittura introspettiva massimizzano la vicinanza emotiva dell'ascoltatore, trasformando il mito tragico in una potente esperienza acustica di immedesimazione psicologica. 791 409 0.5171 73.4 11.81 4.63 23.14 12.9 7.84 8.22">
+<h3>Scheda Analisi: script_02</h3>
+<div class="card-grid">
+<div class="card-item"><strong>ID Script:</strong> <span>script_02</span></div>
+<div class="card-item"><strong>Nome File:</strong> <span>script_troiane_1_intimista_pulito.docx</span></div>
+<div class="card-item"><strong>Format:</strong> <span>Intimistico</span></div>
+<div class="card-item"><strong>Target Pubblico:</strong> <span>Appassionati di teatro classico, letteratura drammatica, podcast narrativi d'autore e ascoltatori interessati all'approfondimento psicologico dei miti antichi e alle tematiche del lutto.</span></div>
+<div class="card-item"><strong>Tono di Voce:</strong> <span>Intimista, sussurrato, dolente e viscerale; evolve da una confessione faticosa e roca a una fermezza stoica, tragica e solenne.</span></div>
+<div class="card-item"><strong>Struttura Narrativa:</strong> <span>Monologo interiore a progressione drammatica: risveglio fisico nel fango, rievocazione nostalgica e straziata dei familiari caduti, meditazione filosofica sull'evoluzione del dolore (dall'urlo al silenzio), epifania della memoria come dovere testimoniale e accettazione finale del destino di schiava.</span></div>
+<div class="card-item"><strong>Temi Chiave:</strong> <span>Metamorfosi e metabolizzazione del dolore (dalla disperazione urlata alla cenere), Memoria e testimonianza come estremo baluardo di resistenza identitaria, Tragedia della sconfitta bellica e perdita totale dello status e degli affetti</span></div>
+<div class="card-item"><strong>Citazioni Testuali:</strong> <span>Rielaborazione fedele e drammatizzata del prologo e dei lamenti euripidei di Ecuba (ad es. 'Sollevati... vecchio corpo. Solleva il collo dal fango', 'Non c'è più Iliade', il richiamo al sangue di Priamo sull'altare di Zeus e allo scempio del corpo di Ettore).</span></div>
+<div class="card-item"><strong>Figure Retoriche:</strong> <span>Metafora ('mare di cenere fredda', 'il mio dolore è l'ultimo monumento che resta a Troia', 'sarò quel vento'), Similitudine ('come un vaso di terracotta lasciato cadere sul marmo', 'tremano come quelle di una bambina'), Anafora ('Non c'è più...', 'Guardami, Ilio. Guardami, terra di Troia', 'Vieni, sofferenza. Vieni, schiavitù'), Apostrofe ('Guardami, Ilio', 'Priamo... mio sposo', 'Vieni, schiavitù')</span></div>
+<div class="card-item"><strong>Valutazione Efficacia:</strong> <span>Perfettamente aderente al format intimista dichiarato: la regia sonora minimale, le precise didascalie attoriali (sussurri, pause lunghe, voce spezzata) e la scrittura introspettiva massimizzano la vicinanza emotiva dell'ascoltatore, trasformando il mito tragico in una potente esperienza acustica di immedesimazione psicologica.</span></div>
+<div class="card-item"><strong>Totale Parole (Tokens):</strong> <span>791</span></div>
+<div class="card-item"><strong>Vocabolario Unico (Types):</strong> <span>409</span></div>
+<div class="card-item"><strong>Ricchezza Lessicale (TTR):</strong> <span>0.5171</span></div>
+<div class="card-item"><strong>Indice Gulpease:</strong> <span>73.4</span></div>
+<div class="card-item"><strong>Parole/Frase (Media):</strong> <span>11.81</span></div>
+<div class="card-item"><strong>Lunghezza Media Parola:</strong> <span>4.63</span></div>
+<div class="card-item"><strong>% Sostantivi:</strong> <span>23.14</span></div>
+<div class="card-item"><strong>% Verbi:</strong> <span>12.9</span></div>
+<div class="card-item"><strong>% Aggettivi:</strong> <span>7.84</span></div>
+<div class="card-item"><strong>% Pronomi:</strong> <span>8.22</span></div>
+</div>
+</div>
+<div class="script-card" data-search-text="script_03 script_troiane_1_reportage_pulito.docx reportage ascoltatori di podcast d'inchiesta e attualità geopolitica, appassionati di reportage di guerra e pubblico colto interessato alla rilettura contemporanea dei classici teatrali. asciutto, immersivo e crudo; alterna la freddezza burocratica dell'inviato di guerra alla tensione viscerale e drammatica delle testimonianze in presa diretta. lineare e modulata su standard da audio-documentario: hook concettuale, ambientazione sul campo (at-the-scene), testimonianze dirette con voice-over e risoluzione con chiusura saggistico-analitica. deumanizzazione sistemica e infanticidio preventivo come dottrina securitaria, violenza sui civili usata come strategia geopolitica deliberata, bancarotta morale e disfacimento etico dell'aggressore vincitore, resistenza della memoria contro la cancellazione operata dai vincitori rielaborazione e attualizzazione drammaturgica dei versi euripidei di andromaca (l'accusa di codardia ai greci) ed ecuba (la maledizione morale sul futuro dei vincitori), mediate dal dispositivo giornalistico del voice-over simulato su audio originale. metafora ('soldato rimandato di vent'anni', 'bancarotta morale'), antitesi ('mobilitato mille navi... e avete paura di un neonato', 'non è un danno collaterale... è una scelta calcolata'), climax ('non riguarda i soldati. riguarda i bambini') estremamente efficace: l'adozione del linguaggio del reportage contemporaneo (sound design tattico, gergo burocratico-militare, espediente del voice-over) risemantizza il testo di euripide con potente immediatezza civile e drammatica, centrando pienamente il genere d'inchiesta. 830 477 0.5747 68.24 7.9 5.11 27.23 10.72 11.69 4.46">
+<h3>Scheda Analisi: script_03</h3>
+<div class="card-grid">
+<div class="card-item"><strong>ID Script:</strong> <span>script_03</span></div>
+<div class="card-item"><strong>Nome File:</strong> <span>script_troiane_1_reportage_pulito.docx</span></div>
+<div class="card-item"><strong>Format:</strong> <span>Reportage</span></div>
+<div class="card-item"><strong>Target Pubblico:</strong> <span>Ascoltatori di podcast d'inchiesta e attualità geopolitica, appassionati di reportage di guerra e pubblico colto interessato alla rilettura contemporanea dei classici teatrali.</span></div>
+<div class="card-item"><strong>Tono di Voce:</strong> <span>Asciutto, immersivo e crudo; alterna la freddezza burocratica dell'inviato di guerra alla tensione viscerale e drammatica delle testimonianze in presa diretta.</span></div>
+<div class="card-item"><strong>Struttura Narrativa:</strong> <span>Lineare e modulata su standard da audio-documentario: hook concettuale, ambientazione sul campo (at-the-scene), testimonianze dirette con voice-over e risoluzione con chiusura saggistico-analitica.</span></div>
+<div class="card-item"><strong>Temi Chiave:</strong> <span>Deumanizzazione sistemica e infanticidio preventivo come dottrina securitaria, Violenza sui civili usata come strategia geopolitica deliberata, Bancarotta morale e disfacimento etico dell'aggressore vincitore, Resistenza della memoria contro la cancellazione operata dai vincitori</span></div>
+<div class="card-item"><strong>Citazioni Testuali:</strong> <span>Rielaborazione e attualizzazione drammaturgica dei versi euripidei di Andromaca (l'accusa di codardia ai greci) ed Ecuba (la maledizione morale sul futuro dei vincitori), mediate dal dispositivo giornalistico del voice-over simulato su audio originale.</span></div>
+<div class="card-item"><strong>Figure Retoriche:</strong> <span>Metafora ('soldato rimandato di vent'anni', 'bancarotta morale'), Antitesi ('mobilitato mille navi... e avete paura di un neonato', 'non è un danno collaterale... è una scelta calcolata'), Climax ('Non riguarda i soldati. Riguarda i bambini')</span></div>
+<div class="card-item"><strong>Valutazione Efficacia:</strong> <span>Estremamente efficace: l'adozione del linguaggio del reportage contemporaneo (sound design tattico, gergo burocratico-militare, espediente del voice-over) risemantizza il testo di Euripide con potente immediatezza civile e drammatica, centrando pienamente il genere d'inchiesta.</span></div>
+<div class="card-item"><strong>Totale Parole (Tokens):</strong> <span>830</span></div>
+<div class="card-item"><strong>Vocabolario Unico (Types):</strong> <span>477</span></div>
+<div class="card-item"><strong>Ricchezza Lessicale (TTR):</strong> <span>0.5747</span></div>
+<div class="card-item"><strong>Indice Gulpease:</strong> <span>68.24</span></div>
+<div class="card-item"><strong>Parole/Frase (Media):</strong> <span>7.9</span></div>
+<div class="card-item"><strong>Lunghezza Media Parola:</strong> <span>5.11</span></div>
+<div class="card-item"><strong>% Sostantivi:</strong> <span>27.23</span></div>
+<div class="card-item"><strong>% Verbi:</strong> <span>10.72</span></div>
+<div class="card-item"><strong>% Aggettivi:</strong> <span>11.69</span></div>
+<div class="card-item"><strong>% Pronomi:</strong> <span>4.46</span></div>
+</div>
+</div>
+<div class="script-card" data-search-text="script_04 script_troiane_2_divulgativo_pulito.docx divulgativo pubblico generalista interessato alla divulgazione culturale, studenti, appassionati di teatro classico, mitologia e questioni di genere. brillante, accessibile, narrativo e coinvolgente, con un registro colloquiale ma storicamente accurato e frequenti interpellazioni dirette all'ascoltatore. impostazione problematizzante: apertura con esperimento mentale immersivo, esposizione del paradosso storico tra polis e scena, demistificazione del contesto teatrale e biografico, analisi della galleria delle protagoniste e chiusura concettuale di valore universale. invisibilità socio-politica della donna nell'atene classica versus centralità sulla scena teatrale, convenzioni sceniche e paradosso di genere del teatro antico (attori e spettatori maschi), decostruzione dell'epica bellica patriarcale attraverso la prospettiva delle vittime, resilienza e articolazione psicologica del dolore femminile nella tragedia assenti citazioni dirette dal testo drammatico in versi; sono presenti citazioni indirette e parafrasi concettuali delle figure e delle dinamiche dell'opera. antitesi e paradosso (invisibilità civile vs dominio scenico; vincitori mediocri vs sconfitte gloriose), domande retoriche per guidare l'attenzione dell'ascoltatore, metafore ('cassa di risonanza democratica', 'mappa dell'anima femminile'), climax ed enumerazione nella rassegna dei personaggi tragici estremamente efficace per il formato divulgativo: traduce concetti storico-letterari complessi in immagini visive immediate e agganci concettuali moderni senza sacrificare la profondità critica. 820 460 0.561 55.44 13.44 5.23 25.98 11.95 10.24 3.29">
+<h3>Scheda Analisi: script_04</h3>
+<div class="card-grid">
+<div class="card-item"><strong>ID Script:</strong> <span>script_04</span></div>
+<div class="card-item"><strong>Nome File:</strong> <span>script_troiane_2_divulgativo_pulito.docx</span></div>
+<div class="card-item"><strong>Format:</strong> <span>Divulgativo</span></div>
+<div class="card-item"><strong>Target Pubblico:</strong> <span>Pubblico generalista interessato alla divulgazione culturale, studenti, appassionati di teatro classico, mitologia e questioni di genere.</span></div>
+<div class="card-item"><strong>Tono di Voce:</strong> <span>Brillante, accessibile, narrativo e coinvolgente, con un registro colloquiale ma storicamente accurato e frequenti interpellazioni dirette all'ascoltatore.</span></div>
+<div class="card-item"><strong>Struttura Narrativa:</strong> <span>Impostazione problematizzante: apertura con esperimento mentale immersivo, esposizione del paradosso storico tra polis e scena, demistificazione del contesto teatrale e biografico, analisi della galleria delle protagoniste e chiusura concettuale di valore universale.</span></div>
+<div class="card-item"><strong>Temi Chiave:</strong> <span>Invisibilità socio-politica della donna nell'Atene classica versus centralità sulla scena teatrale, Convenzioni sceniche e paradosso di genere del teatro antico (attori e spettatori maschi), Decostruzione dell'epica bellica patriarcale attraverso la prospettiva delle vittime, Resilienza e articolazione psicologica del dolore femminile nella tragedia</span></div>
+<div class="card-item"><strong>Citazioni Testuali:</strong> <span>Assenti citazioni dirette dal testo drammatico in versi; sono presenti citazioni indirette e parafrasi concettuali delle figure e delle dinamiche dell'opera.</span></div>
+<div class="card-item"><strong>Figure Retoriche:</strong> <span>Antitesi e paradosso (invisibilità civile vs dominio scenico; vincitori mediocri vs sconfitte gloriose), Domande retoriche per guidare l'attenzione dell'ascoltatore, Metafore ('cassa di risonanza democratica', 'mappa dell'anima femminile'), Climax ed enumerazione nella rassegna dei personaggi tragici</span></div>
+<div class="card-item"><strong>Valutazione Efficacia:</strong> <span>Estremamente efficace per il formato divulgativo: traduce concetti storico-letterari complessi in immagini visive immediate e agganci concettuali moderni senza sacrificare la profondità critica.</span></div>
+<div class="card-item"><strong>Totale Parole (Tokens):</strong> <span>820</span></div>
+<div class="card-item"><strong>Vocabolario Unico (Types):</strong> <span>460</span></div>
+<div class="card-item"><strong>Ricchezza Lessicale (TTR):</strong> <span>0.561</span></div>
+<div class="card-item"><strong>Indice Gulpease:</strong> <span>55.44</span></div>
+<div class="card-item"><strong>Parole/Frase (Media):</strong> <span>13.44</span></div>
+<div class="card-item"><strong>Lunghezza Media Parola:</strong> <span>5.23</span></div>
+<div class="card-item"><strong>% Sostantivi:</strong> <span>25.98</span></div>
+<div class="card-item"><strong>% Verbi:</strong> <span>11.95</span></div>
+<div class="card-item"><strong>% Aggettivi:</strong> <span>10.24</span></div>
+<div class="card-item"><strong>% Pronomi:</strong> <span>3.29</span></div>
+</div>
+</div>
+<div class="script-card" data-search-text="script_05 script_troiane_2_intimista_pulito.docx intimistico ascoltatori adulti e appassionati di cultura teatrale classica, podcast d'autore, drammaturgia esistenziale e narrazioni storiche introspettive. intimista, malinconico, solenne e disilluso, caratterizzato da un ritmo lento e meditativo. monologo d'autore immersivo: apertura panoramica descrittiva della distruzione, focalizzazione ravvicinata sui personaggi (ecuba e andromaca), breve intermezzo dialogico drammatizzato e chiusura aforistica/filosofica. la sofferenza della sopravvivenza e la memoria come condanna, la demitizzazione della gloria bellica e il trauma dei vinti, il corpo femminile degradato a bottino di guerra e merce di scambio, la dignità umana dinanzi all'assenza di salvezza divina presenza di battute dirette rielaborate dal testo euripideo: il confronto filosofico tra ecuba («chiunque sia morto, è finito...») e andromaca («sopravvivere avendo conosciuto la felicità è la vera tortura...»), incentrato sul paradosso del destino dei vivi rispetto ai morti. metafora ('pietra piantata nel petto', 'la memoria ti sbrana'), antitesi ('essere morti' vs 'sopravvivere', 'imperatrice' vs 'merce di scambio'), anafora ('chi resta... chi resta', 'aspettano... aspettano'), personificazione ('vento che sale', 'la guerra si spoglia di ogni retorica') pienamente coerente ed efficace rispetto al format intimistico dichiarato: la sapiente gestione delle pause, l'integrazione minimalista degli elementi sonori (pianoforte diradato, archi cupi) e lo scavo psicologico restituiscono un'esperienza d'ascolto profonda e priva di enfasi retorica. 417 248 0.5947 72.15 11.27 4.52 23.98 16.31 5.04 9.83">
+<h3>Scheda Analisi: script_05</h3>
+<div class="card-grid">
+<div class="card-item"><strong>ID Script:</strong> <span>script_05</span></div>
+<div class="card-item"><strong>Nome File:</strong> <span>script_troiane_2_intimista_pulito.docx</span></div>
+<div class="card-item"><strong>Format:</strong> <span>Intimistico</span></div>
+<div class="card-item"><strong>Target Pubblico:</strong> <span>Ascoltatori adulti e appassionati di cultura teatrale classica, podcast d'autore, drammaturgia esistenziale e narrazioni storiche introspettive.</span></div>
+<div class="card-item"><strong>Tono di Voce:</strong> <span>Intimista, malinconico, solenne e disilluso, caratterizzato da un ritmo lento e meditativo.</span></div>
+<div class="card-item"><strong>Struttura Narrativa:</strong> <span>Monologo d'autore immersivo: apertura panoramica descrittiva della distruzione, focalizzazione ravvicinata sui personaggi (Ecuba e Andromaca), breve intermezzo dialogico drammatizzato e chiusura aforistica/filosofica.</span></div>
+<div class="card-item"><strong>Temi Chiave:</strong> <span>La sofferenza della sopravvivenza e la memoria come condanna, La demitizzazione della gloria bellica e il trauma dei vinti, Il corpo femminile degradato a bottino di guerra e merce di scambio, La dignità umana dinanzi all'assenza di salvezza divina</span></div>
+<div class="card-item"><strong>Citazioni Testuali:</strong> <span>Presenza di battute dirette rielaborate dal testo euripideo: il confronto filosofico tra Ecuba («chiunque sia morto, è finito...») e Andromaca («sopravvivere avendo conosciuto la felicità è la vera tortura...»), incentrato sul paradosso del destino dei vivi rispetto ai morti.</span></div>
+<div class="card-item"><strong>Figure Retoriche:</strong> <span>Metafora ('pietra piantata nel petto', 'la memoria ti sbrana'), Antitesi ('essere morti' vs 'sopravvivere', 'imperatrice' vs 'merce di scambio'), Anafora ('chi resta... chi resta', 'Aspettano... Aspettano'), Personificazione ('vento che sale', 'la guerra si spoglia di ogni retorica')</span></div>
+<div class="card-item"><strong>Valutazione Efficacia:</strong> <span>Pienamente coerente ed efficace rispetto al format intimistico dichiarato: la sapiente gestione delle pause, l'integrazione minimalista degli elementi sonori (pianoforte diradato, archi cupi) e lo scavo psicologico restituiscono un'esperienza d'ascolto profonda e priva di enfasi retorica.</span></div>
+<div class="card-item"><strong>Totale Parole (Tokens):</strong> <span>417</span></div>
+<div class="card-item"><strong>Vocabolario Unico (Types):</strong> <span>248</span></div>
+<div class="card-item"><strong>Ricchezza Lessicale (TTR):</strong> <span>0.5947</span></div>
+<div class="card-item"><strong>Indice Gulpease:</strong> <span>72.15</span></div>
+<div class="card-item"><strong>Parole/Frase (Media):</strong> <span>11.27</span></div>
+<div class="card-item"><strong>Lunghezza Media Parola:</strong> <span>4.52</span></div>
+<div class="card-item"><strong>% Sostantivi:</strong> <span>23.98</span></div>
+<div class="card-item"><strong>% Verbi:</strong> <span>16.31</span></div>
+<div class="card-item"><strong>% Aggettivi:</strong> <span>5.04</span></div>
+<div class="card-item"><strong>% Pronomi:</strong> <span>9.83</span></div>
+</div>
+</div>
+<div class="script-card" data-search-text="script_06 script_troiane_2_reportage_pulito.docx reportage appassionati di teatro classico, studenti, amanti del podcasting narrativo e di divulgazione culturale/storico-sociale. grave, empatico, drammatico e immersivo; stile giornalistico-rievocativo con forti venature letterarie ed etiche. struttura corale e lineare a stazioni: introduzione descrittiva d'ambiente (il dopo-battaglia), rassegna ravvicinata dei singoli drammi (ecuba, andromaca, cassandra), commento critico/attualizzante e chiusura circolare. dramma dei vinti e condizione della donna in guerra, perdita dell'identità e deumanizzazione nella prigionia, violenza cieca del potere e infanticidio bellico, universalità del trauma bellico e memoria citazioni libere e rielaborazioni drammatizzate in prima persona dei monologhi dei personaggi euripidei (ecuba, andromaca, cassandra), funzionali alla resa acustica immediata. antitesi (odore di latte e di vita / puzza solo di morte; regina / schiava), metafora (la terra ha bevuto il loro sangue; sposa della morte), personificazione (il mare che rifiuta di farsi complice; la terra beve), ossimoro (silenzio assordante) efficace nell'ibridare il taglio del reportage d'inchiesta dal fronte di guerra antico con il radiodramma mitologico; l'impianto sonoro (sfx) e la prosa sensoriale rendono vivida e immediata l'esperienza di testimonianza sul campo. 812 409 0.5037 63.06 10.55 4.77 24.88 10.59 9.73 5.05">
+<h3>Scheda Analisi: script_06</h3>
+<div class="card-grid">
+<div class="card-item"><strong>ID Script:</strong> <span>script_06</span></div>
+<div class="card-item"><strong>Nome File:</strong> <span>script_troiane_2_reportage_pulito.docx</span></div>
+<div class="card-item"><strong>Format:</strong> <span>Reportage</span></div>
+<div class="card-item"><strong>Target Pubblico:</strong> <span>Appassionati di teatro classico, studenti, amanti del podcasting narrativo e di divulgazione culturale/storico-sociale.</span></div>
+<div class="card-item"><strong>Tono di Voce:</strong> <span>Grave, empatico, drammatico e immersivo; stile giornalistico-rievocativo con forti venature letterarie ed etiche.</span></div>
+<div class="card-item"><strong>Struttura Narrativa:</strong> <span>Struttura corale e lineare a stazioni: introduzione descrittiva d'ambiente (il dopo-battaglia), rassegna ravvicinata dei singoli drammi (Ecuba, Andromaca, Cassandra), commento critico/attualizzante e chiusura circolare.</span></div>
+<div class="card-item"><strong>Temi Chiave:</strong> <span>Dramma dei vinti e condizione della donna in guerra, Perdita dell'identità e deumanizzazione nella prigionia, Violenza cieca del potere e infanticidio bellico, Universalità del trauma bellico e memoria</span></div>
+<div class="card-item"><strong>Citazioni Testuali:</strong> <span>Citazioni libere e rielaborazioni drammatizzate in prima persona dei monologhi dei personaggi euripidei (Ecuba, Andromaca, Cassandra), funzionali alla resa acustica immediata.</span></div>
+<div class="card-item"><strong>Figure Retoriche:</strong> <span>Antitesi (odore di latte e di vita / puzza solo di morte; regina / schiava), Metafora (la terra ha bevuto il loro sangue; sposa della morte), Personificazione (il mare che rifiuta di farsi complice; la terra beve), Ossimoro (silenzio assordante)</span></div>
+<div class="card-item"><strong>Valutazione Efficacia:</strong> <span>Efficace nell'ibridare il taglio del reportage d'inchiesta dal fronte di guerra antico con il radiodramma mitologico; l'impianto sonoro (SFX) e la prosa sensoriale rendono vivida e immediata l'esperienza di testimonianza sul campo.</span></div>
+<div class="card-item"><strong>Totale Parole (Tokens):</strong> <span>812</span></div>
+<div class="card-item"><strong>Vocabolario Unico (Types):</strong> <span>409</span></div>
+<div class="card-item"><strong>Ricchezza Lessicale (TTR):</strong> <span>0.5037</span></div>
+<div class="card-item"><strong>Indice Gulpease:</strong> <span>63.06</span></div>
+<div class="card-item"><strong>Parole/Frase (Media):</strong> <span>10.55</span></div>
+<div class="card-item"><strong>Lunghezza Media Parola:</strong> <span>4.77</span></div>
+<div class="card-item"><strong>% Sostantivi:</strong> <span>24.88</span></div>
+<div class="card-item"><strong>% Verbi:</strong> <span>10.59</span></div>
+<div class="card-item"><strong>% Aggettivi:</strong> <span>9.73</span></div>
+<div class="card-item"><strong>% Pronomi:</strong> <span>5.05</span></div>
+</div>
+</div>
+<div class="script-card" data-search-text="script_07 script_troiane_3_divulgativo_pulito.docx divulgativo pubblico generalista, giovani adulti e studenti interessati alla divulgazione culturale e a riletture pop e accessibili dei classici. colloquiale, diretto, dinamico ed empatico, con alternanza calibrata tra espressioni gergali moderne e registri drammatici. lineare a gancio progressivo: hook storico-provocatorio (atene e melo), esposizione drammatica delle vittime, snodo centrale con citazione recitata, attualizzazione contemporanea e congedo con call to action. l'assenza di veri vincitori e la sconfitta morale della guerra, il punto di vista delle vittime civili e delle donne sconfitte, la critica alla propaganda bellica e l'attualità immutata della sofferenza umana citazione diretta e teatralizzata del discorso di cassandra riadattata per l'oralità, incentrata sul ribaltamento concettuale tra vincitori e vinti. metafora (es. 'macerie del nostro tempo', 'spara in faccia'), domanda retorica (es. 'chi è il vero sconfitto?'), antitesi (opposizione concettuale tra vittoria militare e sconfitta etica), parallelismo (es. 'cambiano le armi, cambia il paesaggio') estremamente efficace per il formato micro-podcast divulgativo (3 minuti): sintetizza il cuore del messaggio euripideo senza pedanteria accademica, sfruttando un sound design pop per mantenere alto il ritmo narrativo. 486 293 0.6029 60.8 9.92 4.82 23.87 13.37 5.97 8.44">
+<h3>Scheda Analisi: script_07</h3>
+<div class="card-grid">
+<div class="card-item"><strong>ID Script:</strong> <span>script_07</span></div>
+<div class="card-item"><strong>Nome File:</strong> <span>script_troiane_3_divulgativo_pulito.docx</span></div>
+<div class="card-item"><strong>Format:</strong> <span>Divulgativo</span></div>
+<div class="card-item"><strong>Target Pubblico:</strong> <span>Pubblico generalista, giovani adulti e studenti interessati alla divulgazione culturale e a riletture pop e accessibili dei classici.</span></div>
+<div class="card-item"><strong>Tono di Voce:</strong> <span>Colloquiale, diretto, dinamico ed empatico, con alternanza calibrata tra espressioni gergali moderne e registri drammatici.</span></div>
+<div class="card-item"><strong>Struttura Narrativa:</strong> <span>Lineare a gancio progressivo: hook storico-provocatorio (Atene e Melo), esposizione drammatica delle vittime, snodo centrale con citazione recitata, attualizzazione contemporanea e congedo con call to action.</span></div>
+<div class="card-item"><strong>Temi Chiave:</strong> <span>L'assenza di veri vincitori e la sconfitta morale della guerra, Il punto di vista delle vittime civili e delle donne sconfitte, La critica alla propaganda bellica e l'attualità immutata della sofferenza umana</span></div>
+<div class="card-item"><strong>Citazioni Testuali:</strong> <span>Citazione diretta e teatralizzata del discorso di Cassandra riadattata per l'oralità, incentrata sul ribaltamento concettuale tra vincitori e vinti.</span></div>
+<div class="card-item"><strong>Figure Retoriche:</strong> <span>Metafora (es. 'macerie del nostro tempo', 'spara in faccia'), Domanda retorica (es. 'Chi è il vero sconfitto?'), Antitesi (opposizione concettuale tra vittoria militare e sconfitta etica), Parallelismo (es. 'Cambiano le armi, cambia il paesaggio')</span></div>
+<div class="card-item"><strong>Valutazione Efficacia:</strong> <span>Estremamente efficace per il formato micro-podcast divulgativo (3 minuti): sintetizza il cuore del messaggio euripideo senza pedanteria accademica, sfruttando un sound design pop per mantenere alto il ritmo narrativo.</span></div>
+<div class="card-item"><strong>Totale Parole (Tokens):</strong> <span>486</span></div>
+<div class="card-item"><strong>Vocabolario Unico (Types):</strong> <span>293</span></div>
+<div class="card-item"><strong>Ricchezza Lessicale (TTR):</strong> <span>0.6029</span></div>
+<div class="card-item"><strong>Indice Gulpease:</strong> <span>60.8</span></div>
+<div class="card-item"><strong>Parole/Frase (Media):</strong> <span>9.92</span></div>
+<div class="card-item"><strong>Lunghezza Media Parola:</strong> <span>4.82</span></div>
+<div class="card-item"><strong>% Sostantivi:</strong> <span>23.87</span></div>
+<div class="card-item"><strong>% Verbi:</strong> <span>13.37</span></div>
+<div class="card-item"><strong>% Aggettivi:</strong> <span>5.97</span></div>
+<div class="card-item"><strong>% Pronomi:</strong> <span>8.44</span></div>
+</div>
+</div>
+<div class="script-card" data-search-text="script_08 script_troiane_3_intimista_pulito.docx intimistico appassionati di podcast narrativi d'autore, amanti del teatro classico, della mitologia greca riscritta in chiave contemporanea e fruitori di storytelling introspettivo e psicologico. intimista, elegiaco, sussurrato e dolente; registro poetico e confessionale caratterizzato da profonda vulnerabilit e intensit emotiva. monologo interiore circolare a forma di diario sonoro: rievocazione nostalgica e sensoriale del passato domestico, discesa nel presente tragico dell'imminente prigionia con i relativi dilemmi morali, e chiusura solenne incentrata sulla custodia eterna della memoria e sulla prole. memoria, oblio e lutto, violenza della guerra e perdita dell'identit nella schiavit, l'amore coniugale e la sacralit infranta del focolare, maternit e resistenza interiore non sono presenti citazioni filologiche letterali dall'originale greco; si osservano parafrasi drammaturgiche e riprese intertestuali precise da euripide (il destino di concubina di neottolemo, la scissione anima/corpo) e dall'iliade (la celebre scena dell'elmo che atterrisce astianatte). metafora ('io sar una tomba vivente', 'fragile miracolo'), antitesi e ossimoro ('il mio silenzio far pi rumore di tutte le loro festose grida', freddo/caldo, pace/cenere), sinestesia ('odore metallico del sangue', 'dolcezza grave'), domanda retorica ('chi lo dir pi quel nome, con quella voce?', 'pu una donna consegnare il proprio involucro di carne...?'), apostrofe (dialogo diretto e continuo con l'assente ettore) estremamente efficace. il testo sfrutta appieno il linguaggio radiofonico e podcast attraverso didascalie acustiche orientate alla prossemica ravvicinata, al respiro e alle pause, trasponendo l'epos tragico in un'esperienza d'ascolto immersiva, empatica e pienamente conforme alla poetica intimista. 803 428 0.533 67.59 12.55 4.7 24.66 13.08 8.34 7.35">
+<h3>Scheda Analisi: script_08</h3>
+<div class="card-grid">
+<div class="card-item"><strong>ID Script:</strong> <span>script_08</span></div>
+<div class="card-item"><strong>Nome File:</strong> <span>script_troiane_3_intimista_pulito.docx</span></div>
+<div class="card-item"><strong>Format:</strong> <span>Intimistico</span></div>
+<div class="card-item"><strong>Target Pubblico:</strong> <span>Appassionati di podcast narrativi d'autore, amanti del teatro classico, della mitologia greca riscritta in chiave contemporanea e fruitori di storytelling introspettivo e psicologico.</span></div>
+<div class="card-item"><strong>Tono di Voce:</strong> <span>Intimista, elegiaco, sussurrato e dolente; registro poetico e confessionale caratterizzato da profonda vulnerabilit e intensit emotiva.</span></div>
+<div class="card-item"><strong>Struttura Narrativa:</strong> <span>Monologo interiore circolare a forma di diario sonoro: rievocazione nostalgica e sensoriale del passato domestico, discesa nel presente tragico dell'imminente prigionia con i relativi dilemmi morali, e chiusura solenne incentrata sulla custodia eterna della memoria e sulla prole.</span></div>
+<div class="card-item"><strong>Temi Chiave:</strong> <span>Memoria, oblio e lutto, Violenza della guerra e perdita dell'identit nella schiavit, L'amore coniugale e la sacralit infranta del focolare, Maternit e resistenza interiore</span></div>
+<div class="card-item"><strong>Citazioni Testuali:</strong> <span>Non sono presenti citazioni filologiche letterali dall'originale greco; si osservano parafrasi drammaturgiche e riprese intertestuali precise da Euripide (il destino di concubina di Neottolemo, la scissione anima/corpo) e dall'Iliade (la celebre scena dell'elmo che atterrisce Astianatte).</span></div>
+<div class="card-item"><strong>Figure Retoriche:</strong> <span>Metafora ('Io sar una tomba vivente', 'fragile miracolo'), Antitesi e Ossimoro ('Il mio silenzio far pi rumore di tutte le loro festose grida', freddo/caldo, pace/cenere), Sinestesia ('odore metallico del sangue', 'dolcezza grave'), Domanda retorica ('Chi lo dir pi quel nome, con quella voce?', 'Pu una donna consegnare il proprio involucro di carne...?'), Apostrofe (dialogo diretto e continuo con l'assente Ettore)</span></div>
+<div class="card-item"><strong>Valutazione Efficacia:</strong> <span>Estremamente efficace. Il testo sfrutta appieno il linguaggio radiofonico e podcast attraverso didascalie acustiche orientate alla prossemica ravvicinata, al respiro e alle pause, trasponendo l'epos tragico in un'esperienza d'ascolto immersiva, empatica e pienamente conforme alla poetica intimista.</span></div>
+<div class="card-item"><strong>Totale Parole (Tokens):</strong> <span>803</span></div>
+<div class="card-item"><strong>Vocabolario Unico (Types):</strong> <span>428</span></div>
+<div class="card-item"><strong>Ricchezza Lessicale (TTR):</strong> <span>0.533</span></div>
+<div class="card-item"><strong>Indice Gulpease:</strong> <span>67.59</span></div>
+<div class="card-item"><strong>Parole/Frase (Media):</strong> <span>12.55</span></div>
+<div class="card-item"><strong>Lunghezza Media Parola:</strong> <span>4.7</span></div>
+<div class="card-item"><strong>% Sostantivi:</strong> <span>24.66</span></div>
+<div class="card-item"><strong>% Verbi:</strong> <span>13.08</span></div>
+<div class="card-item"><strong>% Aggettivi:</strong> <span>8.34</span></div>
+<div class="card-item"><strong>% Pronomi:</strong> <span>7.35</span></div>
+</div>
+</div>
+<div class="script-card" data-search-text="script_09 script_troiane_3_reportage_pulito.docx reportage appassionati di podcast culturali, divulgazione storico-mitologica, sociologia e attualità con interesse per l'approfondimento critico e psicologico. incalzante, analitico e drammatico, con uno stile comunicativo incisivo e riflessivo tipico dell'inchiesta divulgativa. apertura immersiva in medias res, inquadramento del caso d'indagine, decostruzione del mito con lenti socio-psicologiche moderne, attualizzazione del messaggio e chiusura aperta con domanda etico-riflessiva. la solitudine della verità inascoltata e il rifiuto sociale del dissenso, la dissonanza cognitiva e l'illusione di sicurezza delle masse, l'attualità del mito di cassandra nelle crisi contemporanee assenza di versi diretti tratti dal testo di euripide; presenza di un inserto audio d'archivio/aforistico sintetico a supporto della tesi analitica. metafora ('carcere più isolato', 'faro nella nebbia', 'città ubriaca di arroganza'), antitesi ('vista dolorosissima vs cecità degli altri'), domanda retorica finale efficace e coinvolgente per il ritmo e il sound design, anche se si configura più come un essay audio/divulgazione analitica che come un vero e proprio reportage sul campo per la mancanza di fonti documentali e testimonianze dirette. 703 393 0.559 61.83 9.01 5.18 23.76 12.66 9.67 5.69">
+<h3>Scheda Analisi: script_09</h3>
+<div class="card-grid">
+<div class="card-item"><strong>ID Script:</strong> <span>script_09</span></div>
+<div class="card-item"><strong>Nome File:</strong> <span>script_troiane_3_reportage_pulito.docx</span></div>
+<div class="card-item"><strong>Format:</strong> <span>Reportage</span></div>
+<div class="card-item"><strong>Target Pubblico:</strong> <span>Appassionati di podcast culturali, divulgazione storico-mitologica, sociologia e attualità con interesse per l'approfondimento critico e psicologico.</span></div>
+<div class="card-item"><strong>Tono di Voce:</strong> <span>Incalzante, analitico e drammatico, con uno stile comunicativo incisivo e riflessivo tipico dell'inchiesta divulgativa.</span></div>
+<div class="card-item"><strong>Struttura Narrativa:</strong> <span>Apertura immersiva in medias res, inquadramento del caso d'indagine, decostruzione del mito con lenti socio-psicologiche moderne, attualizzazione del messaggio e chiusura aperta con domanda etico-riflessiva.</span></div>
+<div class="card-item"><strong>Temi Chiave:</strong> <span>La solitudine della verità inascoltata e il rifiuto sociale del dissenso, La dissonanza cognitiva e l'illusione di sicurezza delle masse, L'attualità del mito di Cassandra nelle crisi contemporanee</span></div>
+<div class="card-item"><strong>Citazioni Testuali:</strong> <span>Assenza di versi diretti tratti dal testo di Euripide; presenza di un inserto audio d'archivio/aforistico sintetico a supporto della tesi analitica.</span></div>
+<div class="card-item"><strong>Figure Retoriche:</strong> <span>Metafora ('carcere più isolato', 'faro nella nebbia', 'città ubriaca di arroganza'), Antitesi ('vista dolorosissima vs cecità degli altri'), Domanda retorica finale</span></div>
+<div class="card-item"><strong>Valutazione Efficacia:</strong> <span>Efficace e coinvolgente per il ritmo e il sound design, anche se si configura più come un essay audio/divulgazione analitica che come un vero e proprio reportage sul campo per la mancanza di fonti documentali e testimonianze dirette.</span></div>
+<div class="card-item"><strong>Totale Parole (Tokens):</strong> <span>703</span></div>
+<div class="card-item"><strong>Vocabolario Unico (Types):</strong> <span>393</span></div>
+<div class="card-item"><strong>Ricchezza Lessicale (TTR):</strong> <span>0.559</span></div>
+<div class="card-item"><strong>Indice Gulpease:</strong> <span>61.83</span></div>
+<div class="card-item"><strong>Parole/Frase (Media):</strong> <span>9.01</span></div>
+<div class="card-item"><strong>Lunghezza Media Parola:</strong> <span>5.18</span></div>
+<div class="card-item"><strong>% Sostantivi:</strong> <span>23.76</span></div>
+<div class="card-item"><strong>% Verbi:</strong> <span>12.66</span></div>
+<div class="card-item"><strong>% Aggettivi:</strong> <span>9.67</span></div>
+<div class="card-item"><strong>% Pronomi:</strong> <span>5.69</span></div>
+</div>
+</div>
+<div class="script-card" data-search-text="script_10 script_troiane_4_divulgativo_pulito.docx divulgativo pubblico generalista e curioso, interessato a teatro classico, mitologia, psicologia divulgativa e attualità sociopolitica. coinvolgente, accessibile, riflessivo ed empatico, caratterizzato da un registro colloquiale ma rigoroso nell'esposizione. struttura ad arco ponte: hook interrogativo empatico, inquadramento del mito classico e della scena euripidea, traslazione teorico-psicologica (sindrome di cassandra), esemplificazione sociopolitica contemporanea e chiusura circolare con morale applicata all'ascoltatore. l'archetipo tragico di cassandra e l'intelligenza inascoltata, la declinazione clinico-psicologica della sindrome e il fenomeno del gaslighting, i bias di conferma cognitivi e il diniego sistemico della società di fronte alle crisi moderne assenza di citazioni poetiche dirette verso a verso; presenza di citazioni concettuali, parafrasi della scena euripidea e menzione esplicita di costrutti psicoanalitici ed espressioni virgolettate. domanda retorica con funzione di aggancio immersivo, parallelismo e anafora nell'accumulazione di esempi storici ('pensate a...', 'pensate agli...'), metafora concettuale ('il cavallo di troia', 'ponte crollato', 'precipizio'), antitesi drammatica tra riso liberatorio di cassandra e orrore/pianto del contesto circostante pienamente efficace rispetto al format divulgativo: decostruisce l'archetipo tragico rendendolo accessibile e applicabile al presente senza banalizzarne la complessità drammaturgica. 926 500 0.54 50.71 16.25 5.37 21.71 14.04 9.07 5.4">
+<h3>Scheda Analisi: script_10</h3>
+<div class="card-grid">
+<div class="card-item"><strong>ID Script:</strong> <span>script_10</span></div>
+<div class="card-item"><strong>Nome File:</strong> <span>script_troiane_4_divulgativo_pulito.docx</span></div>
+<div class="card-item"><strong>Format:</strong> <span>Divulgativo</span></div>
+<div class="card-item"><strong>Target Pubblico:</strong> <span>Pubblico generalista e curioso, interessato a teatro classico, mitologia, psicologia divulgativa e attualità sociopolitica.</span></div>
+<div class="card-item"><strong>Tono di Voce:</strong> <span>Coinvolgente, accessibile, riflessivo ed empatico, caratterizzato da un registro colloquiale ma rigoroso nell'esposizione.</span></div>
+<div class="card-item"><strong>Struttura Narrativa:</strong> <span>Struttura ad arco ponte: hook interrogativo empatico, inquadramento del mito classico e della scena euripidea, traslazione teorico-psicologica (Sindrome di Cassandra), esemplificazione sociopolitica contemporanea e chiusura circolare con morale applicata all'ascoltatore.</span></div>
+<div class="card-item"><strong>Temi Chiave:</strong> <span>L'archetipo tragico di Cassandra e l'intelligenza inascoltata, La declinazione clinico-psicologica della sindrome e il fenomeno del gaslighting, I bias di conferma cognitivi e il diniego sistemico della società di fronte alle crisi moderne</span></div>
+<div class="card-item"><strong>Citazioni Testuali:</strong> <span>Assenza di citazioni poetiche dirette verso a verso; presenza di citazioni concettuali, parafrasi della scena euripidea e menzione esplicita di costrutti psicoanalitici ed espressioni virgolettate.</span></div>
+<div class="card-item"><strong>Figure Retoriche:</strong> <span>Domanda retorica con funzione di aggancio immersivo, Parallelismo e anafora nell'accumulazione di esempi storici ('Pensate a...', 'Pensate agli...'), Metafora concettuale ('il cavallo di Troia', 'ponte crollato', 'precipizio'), Antitesi drammatica tra riso liberatorio di Cassandra e orrore/pianto del contesto circostante</span></div>
+<div class="card-item"><strong>Valutazione Efficacia:</strong> <span>Pienamente efficace rispetto al format divulgativo: decostruisce l'archetipo tragico rendendolo accessibile e applicabile al presente senza banalizzarne la complessità drammaturgica.</span></div>
+<div class="card-item"><strong>Totale Parole (Tokens):</strong> <span>926</span></div>
+<div class="card-item"><strong>Vocabolario Unico (Types):</strong> <span>500</span></div>
+<div class="card-item"><strong>Ricchezza Lessicale (TTR):</strong> <span>0.54</span></div>
+<div class="card-item"><strong>Indice Gulpease:</strong> <span>50.71</span></div>
+<div class="card-item"><strong>Parole/Frase (Media):</strong> <span>16.25</span></div>
+<div class="card-item"><strong>Lunghezza Media Parola:</strong> <span>5.37</span></div>
+<div class="card-item"><strong>% Sostantivi:</strong> <span>21.71</span></div>
+<div class="card-item"><strong>% Verbi:</strong> <span>14.04</span></div>
+<div class="card-item"><strong>% Aggettivi:</strong> <span>9.07</span></div>
+<div class="card-item"><strong>% Pronomi:</strong> <span>5.4</span></div>
+</div>
+</div>
+<div class="script-card" data-search-text="script_11 script_troiane_4_intimista_pulito.docx intimistico appassionati di teatro classico, mitologia greca, drammaturgia contemporanea e fruitori di podcast narrativi a sfondo introspettivo e culturale. febbrile, sussurrato e intimo, caratterizzato da un lirismo tragico che alterna visioni profetiche estatiche a momenti di lucida crudeltà. monologo drammatico interiore a progressione circolare: apertura sensoriale nel buio, invocazione affettiva alla madre, argomentazione dialettica sul paradosso della vittoria bellica, climax visionario sul destino di agamennone e congedo sacrificale. paradosso etico della vittoria bellica: il fallimento dei vincitori greci e l'onore dei vinti troiani, nozze di sangue e ribaltamento del ruolo della vittima in carnefice ed erinni, profetismo tragico come condanna e riscatto finale attraverso il fato parafrasi drammaturgica aderente ai temi euripidei delle troiane (in particolare il ribaltamento 'troia è caduta... ma troia ha vinto' e il motivo della fiaccola nuziale/funebre). ossimoro e paradosso ('nozze di cenere', 'troia è caduta... ma troia ha vinto'), metafora ('condanna volante', 'peste della sfortuna', 'pancia d'acciaio'), antitesi (opposizione tra il destino dei greci in terra straniera e la morte gloriosa dei troiani in patria), climax (crescendo emotivo dal sussurro febbrile all'esaltazione estatica del compimento del fato) estremamente efficace per il formato intimista: l'uso mirato di pause, sussurri e indicazioni registiche sonore valorizza l'acustica del medium podcast, immergendo l'ascoltatore nella mente traumatizzata e al contempo lucida di cassandra. 766 393 0.5131 72.04 12.35 4.59 27.02 12.27 7.31 5.61">
+<h3>Scheda Analisi: script_11</h3>
+<div class="card-grid">
+<div class="card-item"><strong>ID Script:</strong> <span>script_11</span></div>
+<div class="card-item"><strong>Nome File:</strong> <span>script_troiane_4_intimista_pulito.docx</span></div>
+<div class="card-item"><strong>Format:</strong> <span>Intimistico</span></div>
+<div class="card-item"><strong>Target Pubblico:</strong> <span>Appassionati di teatro classico, mitologia greca, drammaturgia contemporanea e fruitori di podcast narrativi a sfondo introspettivo e culturale.</span></div>
+<div class="card-item"><strong>Tono di Voce:</strong> <span>Febbrile, sussurrato e intimo, caratterizzato da un lirismo tragico che alterna visioni profetiche estatiche a momenti di lucida crudeltà.</span></div>
+<div class="card-item"><strong>Struttura Narrativa:</strong> <span>Monologo drammatico interiore a progressione circolare: apertura sensoriale nel buio, invocazione affettiva alla madre, argomentazione dialettica sul paradosso della vittoria bellica, climax visionario sul destino di Agamennone e congedo sacrificale.</span></div>
+<div class="card-item"><strong>Temi Chiave:</strong> <span>Paradosso etico della vittoria bellica: il fallimento dei vincitori greci e l'onore dei vinti troiani, Nozze di sangue e ribaltamento del ruolo della vittima in carnefice ed Erinni, Profetismo tragico come condanna e riscatto finale attraverso il fato</span></div>
+<div class="card-item"><strong>Citazioni Testuali:</strong> <span>Parafrasi drammaturgica aderente ai temi euripidei delle Troiane (in particolare il ribaltamento 'Troia è caduta... ma Troia ha vinto' e il motivo della fiaccola nuziale/funebre).</span></div>
+<div class="card-item"><strong>Figure Retoriche:</strong> <span>Ossimoro e paradosso ('nozze di cenere', 'Troia è caduta... ma Troia ha vinto'), Metafora ('condanna volante', 'peste della sfortuna', 'pancia d'acciaio'), Antitesi (opposizione tra il destino dei Greci in terra straniera e la morte gloriosa dei Troiani in patria), Climax (crescendo emotivo dal sussurro febbrile all'esaltazione estatica del compimento del fato)</span></div>
+<div class="card-item"><strong>Valutazione Efficacia:</strong> <span>Estremamente efficace per il formato intimista: l'uso mirato di pause, sussurri e indicazioni registiche sonore valorizza l'acustica del medium podcast, immergendo l'ascoltatore nella mente traumatizzata e al contempo lucida di Cassandra.</span></div>
+<div class="card-item"><strong>Totale Parole (Tokens):</strong> <span>766</span></div>
+<div class="card-item"><strong>Vocabolario Unico (Types):</strong> <span>393</span></div>
+<div class="card-item"><strong>Ricchezza Lessicale (TTR):</strong> <span>0.5131</span></div>
+<div class="card-item"><strong>Indice Gulpease:</strong> <span>72.04</span></div>
+<div class="card-item"><strong>Parole/Frase (Media):</strong> <span>12.35</span></div>
+<div class="card-item"><strong>Lunghezza Media Parola:</strong> <span>4.59</span></div>
+<div class="card-item"><strong>% Sostantivi:</strong> <span>27.02</span></div>
+<div class="card-item"><strong>% Verbi:</strong> <span>12.27</span></div>
+<div class="card-item"><strong>% Aggettivi:</strong> <span>7.31</span></div>
+<div class="card-item"><strong>% Pronomi:</strong> <span>5.61</span></div>
+</div>
+</div>
+<div class="script-card" data-search-text="script_12 script_troiane_4_reportage_pulito.docx reportage appassionati di podcast narrativi e storici, studenti e amanti del teatro classico, fruitori di reportage e giornalismo di guerra interessati alla reinterpretazione dell'antico in chiave contemporanea. crudo, teso, drammatico e partecipe; fonde il realismo documentaristico della cronaca sul campo con la solennità etica della tragedia greca. lineare e immersiva con avvio in medias res: introduzione ambientale-sensoriale, arrivo dell'araldo e notifica della condanna, culmine drammatico della separazione madre-figlio, chiusura con riflessione etico-politica e classico commiato del corrispondente. la disumanità e il calcolo cinico della sicurezza preventiva in guerra, il dramma materno e la violenza contro gli innocenti inermi, la codardia morale e la paura celate dietro il trionfalismo dei vincitori, la burocrazia dell'obbedienza cieca negli apparati militari riadattamento e traduzione diretta di celebri battute euripidee di andromaca ('o figlio mio... ti stringi a me come un piccolo uccello sotto le ali della madre' e l'invettiva disperata 'prendetelo! portatelo via! precipitatelo... divorate le sue carni!'). similitudine (il bambino come piccolo uccello sotto le ali), antitesi (l'innocenza non come salvaguardia ma come colpa), metafora (la burocrazia della morte; la macchina bellica della grecia), paradosso (il paradosso della vittoria che distrugge l'innocenza per paura) molto alta: l'ibridazione tra drammaturgia euripidea e reportage radiofonico d'assalto funziona perfettamente, trasformando la tragedia classica in una cronaca viva, urgente e carica di suggestione visiva e sonora. 884 454 0.5136 67.08 10.52 4.8 24.32 13.01 7.13 7.69">
+<h3>Scheda Analisi: script_12</h3>
+<div class="card-grid">
+<div class="card-item"><strong>ID Script:</strong> <span>script_12</span></div>
+<div class="card-item"><strong>Nome File:</strong> <span>script_troiane_4_reportage_pulito.docx</span></div>
+<div class="card-item"><strong>Format:</strong> <span>Reportage</span></div>
+<div class="card-item"><strong>Target Pubblico:</strong> <span>Appassionati di podcast narrativi e storici, studenti e amanti del teatro classico, fruitori di reportage e giornalismo di guerra interessati alla reinterpretazione dell'antico in chiave contemporanea.</span></div>
+<div class="card-item"><strong>Tono di Voce:</strong> <span>Crudo, teso, drammatico e partecipe; fonde il realismo documentaristico della cronaca sul campo con la solennità etica della tragedia greca.</span></div>
+<div class="card-item"><strong>Struttura Narrativa:</strong> <span>Lineare e immersiva con avvio in medias res: introduzione ambientale-sensoriale, arrivo dell'araldo e notifica della condanna, culmine drammatico della separazione madre-figlio, chiusura con riflessione etico-politica e classico commiato del corrispondente.</span></div>
+<div class="card-item"><strong>Temi Chiave:</strong> <span>La disumanità e il calcolo cinico della sicurezza preventiva in guerra, Il dramma materno e la violenza contro gli innocenti inermi, La codardia morale e la paura celate dietro il trionfalismo dei vincitori, La burocrazia dell'obbedienza cieca negli apparati militari</span></div>
+<div class="card-item"><strong>Citazioni Testuali:</strong> <span>Riadattamento e traduzione diretta di celebri battute euripidee di Andromaca ('O figlio mio... ti stringi a me come un piccolo uccello sotto le ali della madre' e l'invettiva disperata 'Prendetelo! Portatelo via! Precipitatelo... divorate le sue carni!').</span></div>
+<div class="card-item"><strong>Figure Retoriche:</strong> <span>Similitudine (il bambino come piccolo uccello sotto le ali), Antitesi (l'innocenza non come salvaguardia ma come colpa), Metafora (la burocrazia della morte; la macchina bellica della Grecia), Paradosso (il paradosso della vittoria che distrugge l'innocenza per paura)</span></div>
+<div class="card-item"><strong>Valutazione Efficacia:</strong> <span>Molto alta: l'ibridazione tra drammaturgia euripidea e reportage radiofonico d'assalto funziona perfettamente, trasformando la tragedia classica in una cronaca viva, urgente e carica di suggestione visiva e sonora.</span></div>
+<div class="card-item"><strong>Totale Parole (Tokens):</strong> <span>884</span></div>
+<div class="card-item"><strong>Vocabolario Unico (Types):</strong> <span>454</span></div>
+<div class="card-item"><strong>Ricchezza Lessicale (TTR):</strong> <span>0.5136</span></div>
+<div class="card-item"><strong>Indice Gulpease:</strong> <span>67.08</span></div>
+<div class="card-item"><strong>Parole/Frase (Media):</strong> <span>10.52</span></div>
+<div class="card-item"><strong>Lunghezza Media Parola:</strong> <span>4.8</span></div>
+<div class="card-item"><strong>% Sostantivi:</strong> <span>24.32</span></div>
+<div class="card-item"><strong>% Verbi:</strong> <span>13.01</span></div>
+<div class="card-item"><strong>% Aggettivi:</strong> <span>7.13</span></div>
+<div class="card-item"><strong>% Pronomi:</strong> <span>7.69</span></div>
+</div>
+</div>
+<div class="script-card" data-search-text="script_13 script_troiane_5_divulgativo_pulito.docx divulgativo pubblico generalista interessato a cultura, teatro classico, storia contemporanea e questioni geopolitiche, con un approccio accessibile ma approfondito. divulgativo, coinvolgente, appassionato ed eticamente partecipe, con un ritmo incalzante orientato allo storytelling audio. cronologico-tematica a stazioni storiche: introduzione concettuale sull'universalità del testo, excursus attraverso le riscritture chiave del novecento e duemila (parigi 1965, sarajevo 1993, cipro 1998, giordania 2013), e chiusura con riflessione aperta sul presente. attualità perenne del classico come griglia universale contro la guerra, teatro come atto politico, rito di sopravvivenza ed esorcismo del trauma, smascheramento della retorica militare e impatto umano sulle popolazioni civili presenza di citazioni mirate da rielaborazioni e testimonianze moderne: la battuta di poseidone nell'adattamento di sartre ('maledetti europei, farete la guerra...') e la testimonianza di una rifugiata siriana ('pensavo che euripide avesse scritto questa storia per noi...'). metafora ('mummificate dal rispetto e dalla polvere', 'parole come bisturi', 'dispositivo drammaturgico'), anafora / ripetizione ritmica ('ogni volta che...', 'non ci sono... non per celebrare...'), antitesi ('passato/futuro', 'buoni/cattivi', 'testo antico/realtà presente'), domanda retorica conclusiva ('ha davvero senso vincere una guerra...?') pienamente efficace rispetto al format divulgativo: traduce complessi passaggi storico-filosofici in immagini visive ed emotive adatte all'ascolto, mantenendo alta la tensione narrativa senza scivolare nell'accademismo. 812 448 0.5517 55.07 15.32 5.17 22.91 12.68 8.99 4.43">
+<h3>Scheda Analisi: script_13</h3>
+<div class="card-grid">
+<div class="card-item"><strong>ID Script:</strong> <span>script_13</span></div>
+<div class="card-item"><strong>Nome File:</strong> <span>script_troiane_5_divulgativo_pulito.docx</span></div>
+<div class="card-item"><strong>Format:</strong> <span>Divulgativo</span></div>
+<div class="card-item"><strong>Target Pubblico:</strong> <span>Pubblico generalista interessato a cultura, teatro classico, storia contemporanea e questioni geopolitiche, con un approccio accessibile ma approfondito.</span></div>
+<div class="card-item"><strong>Tono di Voce:</strong> <span>Divulgativo, coinvolgente, appassionato ed eticamente partecipe, con un ritmo incalzante orientato allo storytelling audio.</span></div>
+<div class="card-item"><strong>Struttura Narrativa:</strong> <span>Cronologico-tematica a stazioni storiche: introduzione concettuale sull'universalità del testo, excursus attraverso le riscritture chiave del Novecento e Duemila (Parigi 1965, Sarajevo 1993, Cipro 1998, Giordania 2013), e chiusura con riflessione aperta sul presente.</span></div>
+<div class="card-item"><strong>Temi Chiave:</strong> <span>Attualità perenne del classico come griglia universale contro la guerra, Teatro come atto politico, rito di sopravvivenza ed esorcismo del trauma, Smascheramento della retorica militare e impatto umano sulle popolazioni civili</span></div>
+<div class="card-item"><strong>Citazioni Testuali:</strong> <span>Presenza di citazioni mirate da rielaborazioni e testimonianze moderne: la battuta di Poseidone nell'adattamento di Sartre ('Maledetti europei, farete la guerra...') e la testimonianza di una rifugiata siriana ('Pensavo che Euripide avesse scritto questa storia per noi...').</span></div>
+<div class="card-item"><strong>Figure Retoriche:</strong> <span>Metafora ('mummificate dal rispetto e dalla polvere', 'parole come bisturi', 'dispositivo drammaturgico'), Anafora / Ripetizione ritmica ('ogni volta che...', 'Non ci sono... Non per celebrare...'), Antitesi ('passato/futuro', 'buoni/cattivi', 'testo antico/realtà presente'), Domanda retorica conclusiva ('Ha davvero senso vincere una guerra...?')</span></div>
+<div class="card-item"><strong>Valutazione Efficacia:</strong> <span>Pienamente efficace rispetto al format divulgativo: traduce complessi passaggi storico-filosofici in immagini visive ed emotive adatte all'ascolto, mantenendo alta la tensione narrativa senza scivolare nell'accademismo.</span></div>
+<div class="card-item"><strong>Totale Parole (Tokens):</strong> <span>812</span></div>
+<div class="card-item"><strong>Vocabolario Unico (Types):</strong> <span>448</span></div>
+<div class="card-item"><strong>Ricchezza Lessicale (TTR):</strong> <span>0.5517</span></div>
+<div class="card-item"><strong>Indice Gulpease:</strong> <span>55.07</span></div>
+<div class="card-item"><strong>Parole/Frase (Media):</strong> <span>15.32</span></div>
+<div class="card-item"><strong>Lunghezza Media Parola:</strong> <span>5.17</span></div>
+<div class="card-item"><strong>% Sostantivi:</strong> <span>22.91</span></div>
+<div class="card-item"><strong>% Verbi:</strong> <span>12.68</span></div>
+<div class="card-item"><strong>% Aggettivi:</strong> <span>8.99</span></div>
+<div class="card-item"><strong>% Pronomi:</strong> <span>4.43</span></div>
+</div>
+</div>
+<div class="script-card" data-search-text="script_14 script_troiane_5_intimista_pulito.docx intimistico appassionati di teatro classico, mitologia e letteratura, amanti di podcast narrativi ad alta intensità emotiva, drammaturgie sonore e riletture intime della storia e del mito. intimista, elegiaco, sussurrato e meditativo; registro lirico, solenne e profondamente empatico con cadenze lente e riflessive. monologo corale lineare e retrospettivo: apertura sensoriale con distacco fisico da troia, contemplazione delle rovine e della condizione di schiave, presa di coscienza del ruolo della memoria e congedo finale rituale verso l'ignoto. il lutto, lo sradicamento e la perdita dell'identità, la memoria come atto di resistenza e immortalità, la vanità della vittoria e il vuoto morale della guerra, la dignità e sorellanza del coro dei vinti assenza di citazioni filologiche dirette del testo greco; prevale la parafrasi evocativa e la rielaborazione poetica libera dei passaggi cardine euripidei (es. menzione del pianto di ecuba, andromaca e cassandra). metafora (es. 'linea sottile di fumo', 'strada liquida', 'vascello che trasporta l'anima'), similitudine (es. 'stipate come merce', 'colate come cera calda'), anafora/ripetizione (es. 'guardate... guardate', 'addio... addio... addio'), personificazione (es. 'il fuoco ha divorato', 'ferita aperta nella carne della terra'), antitesi (es. la vittoria che somiglia a una maledizione; distruzione delle mura vs sopravvivenza della memoria) altamente efficace rispetto al format intimista: l'uso sapiente del sound design marino, le didascalie vocali (sussurrato, pause lunghe) e il punto di vista corale trasformano la tragedia classica in una confessione interiore potente e immersiva. 775 417 0.5381 62.08 14.35 4.93 25.81 12.65 10.06 6.32">
+<h3>Scheda Analisi: script_14</h3>
+<div class="card-grid">
+<div class="card-item"><strong>ID Script:</strong> <span>script_14</span></div>
+<div class="card-item"><strong>Nome File:</strong> <span>script_troiane_5_intimista_pulito.docx</span></div>
+<div class="card-item"><strong>Format:</strong> <span>Intimistico</span></div>
+<div class="card-item"><strong>Target Pubblico:</strong> <span>Appassionati di teatro classico, mitologia e letteratura, amanti di podcast narrativi ad alta intensità emotiva, drammaturgie sonore e riletture intime della storia e del mito.</span></div>
+<div class="card-item"><strong>Tono di Voce:</strong> <span>Intimista, elegiaco, sussurrato e meditativo; registro lirico, solenne e profondamente empatico con cadenze lente e riflessive.</span></div>
+<div class="card-item"><strong>Struttura Narrativa:</strong> <span>Monologo corale lineare e retrospettivo: apertura sensoriale con distacco fisico da Troia, contemplazione delle rovine e della condizione di schiave, presa di coscienza del ruolo della memoria e congedo finale rituale verso l'ignoto.</span></div>
+<div class="card-item"><strong>Temi Chiave:</strong> <span>Il lutto, lo sradicamento e la perdita dell'identità, La memoria come atto di resistenza e immortalità, La vanità della vittoria e il vuoto morale della guerra, La dignità e sorellanza del coro dei vinti</span></div>
+<div class="card-item"><strong>Citazioni Testuali:</strong> <span>Assenza di citazioni filologiche dirette del testo greco; prevale la parafrasi evocativa e la rielaborazione poetica libera dei passaggi cardine euripidei (es. menzione del pianto di Ecuba, Andromaca e Cassandra).</span></div>
+<div class="card-item"><strong>Figure Retoriche:</strong> <span>Metafora (es. 'linea sottile di fumo', 'strada liquida', 'vascello che trasporta l'anima'), Similitudine (es. 'stipate come merce', 'colate come cera calda'), Anafora/Ripetizione (es. 'Guardate... Guardate', 'Addio... Addio... Addio'), Personificazione (es. 'il fuoco ha divorato', 'ferita aperta nella carne della terra'), Antitesi (es. la vittoria che somiglia a una maledizione; distruzione delle mura vs sopravvivenza della memoria)</span></div>
+<div class="card-item"><strong>Valutazione Efficacia:</strong> <span>Altamente efficace rispetto al format intimista: l'uso sapiente del sound design marino, le didascalie vocali (sussurrato, pause lunghe) e il punto di vista corale trasformano la tragedia classica in una confessione interiore potente e immersiva.</span></div>
+<div class="card-item"><strong>Totale Parole (Tokens):</strong> <span>775</span></div>
+<div class="card-item"><strong>Vocabolario Unico (Types):</strong> <span>417</span></div>
+<div class="card-item"><strong>Ricchezza Lessicale (TTR):</strong> <span>0.5381</span></div>
+<div class="card-item"><strong>Indice Gulpease:</strong> <span>62.08</span></div>
+<div class="card-item"><strong>Parole/Frase (Media):</strong> <span>14.35</span></div>
+<div class="card-item"><strong>Lunghezza Media Parola:</strong> <span>4.93</span></div>
+<div class="card-item"><strong>% Sostantivi:</strong> <span>25.81</span></div>
+<div class="card-item"><strong>% Verbi:</strong> <span>12.65</span></div>
+<div class="card-item"><strong>% Aggettivi:</strong> <span>10.06</span></div>
+<div class="card-item"><strong>% Pronomi:</strong> <span>6.32</span></div>
+</div>
+</div>
+<div class="script-card" data-search-text="script_15 script_troiane_5_reportage_pulito.docx reportage appassionati di podcast di inchiesta, true crime storico e cultura classica; ascoltatori attratti da riletture contemporanee del mito e drammi giudiziari. incalzante, giornalistico, analitico e teso; fonde la gravita della cronaca di guerra con il rigore del reportage d inchiesta giudiziaria. impostazione da cronaca processuale sul campo: apertura descrittiva del contesto, esposizione dell arringa difensiva (elena), contro-arringa dell accusa (ecuba), reazione dell assemblea e verdetto (menelao), chiosa riflessiva finale del reporter. responsabilita individuale e colpa vs fatalismo divino, retorica e manipolazione della verita come strumenti di sopravvivenza, ambiguità della giustizia bellica e fragilita del potere maschile di fronte al desiderio riadattamenti diretti e parafrasi fedeli dell agone euripideo posti in discorso diretto (es. la difesa sul giudizio di paride, la replica di ecuba su afrodite nata dallo sguardo di elena, e l avvertimento finale a menelao). metafora (elena definita imputata perfetta e professionista della sopravvivenza; paride come fiaccola di troia), antitesi (opposizione tra volonta divina e vanita terrena; innocenza proclamata vs calcolo opportunista), domanda retorica (usata sia da elena per discolparsi sia da ecuba per inchiodarla ai fatti concreti) altamente efficace: l agone tragico euripideo si adatta perfettamente al formato reportage/dibattimento giudiziario, con un ritmo radiofonico serrato, indicazioni sonore immersive e un efficace ponte tra antichita e attualita. 893 489 0.5476 61.94 11.91 4.81 23.74 14.0 6.61 4.59">
+<h3>Scheda Analisi: script_15</h3>
+<div class="card-grid">
+<div class="card-item"><strong>ID Script:</strong> <span>script_15</span></div>
+<div class="card-item"><strong>Nome File:</strong> <span>script_troiane_5_reportage_pulito.docx</span></div>
+<div class="card-item"><strong>Format:</strong> <span>Reportage</span></div>
+<div class="card-item"><strong>Target Pubblico:</strong> <span>Appassionati di podcast di inchiesta, true crime storico e cultura classica; ascoltatori attratti da riletture contemporanee del mito e drammi giudiziari.</span></div>
+<div class="card-item"><strong>Tono di Voce:</strong> <span>Incalzante, giornalistico, analitico e teso; fonde la gravita della cronaca di guerra con il rigore del reportage d inchiesta giudiziaria.</span></div>
+<div class="card-item"><strong>Struttura Narrativa:</strong> <span>Impostazione da cronaca processuale sul campo: apertura descrittiva del contesto, esposizione dell arringa difensiva (Elena), contro-arringa dell accusa (Ecuba), reazione dell assemblea e verdetto (Menelao), chiosa riflessiva finale del reporter.</span></div>
+<div class="card-item"><strong>Temi Chiave:</strong> <span>Responsabilita individuale e colpa vs fatalismo divino, Retorica e manipolazione della verita come strumenti di sopravvivenza, Ambiguità della giustizia bellica e fragilita del potere maschile di fronte al desiderio</span></div>
+<div class="card-item"><strong>Citazioni Testuali:</strong> <span>Riadattamenti diretti e parafrasi fedeli dell agone euripideo posti in discorso diretto (es. la difesa sul giudizio di Paride, la replica di Ecuba su Afrodite nata dallo sguardo di Elena, e l avvertimento finale a Menelao).</span></div>
+<div class="card-item"><strong>Figure Retoriche:</strong> <span>Metafora (Elena definita imputata perfetta e professionista della sopravvivenza; Paride come fiaccola di Troia), Antitesi (opposizione tra volonta divina e vanita terrena; innocenza proclamata vs calcolo opportunista), Domanda retorica (usata sia da Elena per discolparsi sia da Ecuba per inchiodarla ai fatti concreti)</span></div>
+<div class="card-item"><strong>Valutazione Efficacia:</strong> <span>Altamente efficace: l agone tragico euripideo si adatta perfettamente al formato reportage/dibattimento giudiziario, con un ritmo radiofonico serrato, indicazioni sonore immersive e un efficace ponte tra antichita e attualita.</span></div>
+<div class="card-item"><strong>Totale Parole (Tokens):</strong> <span>893</span></div>
+<div class="card-item"><strong>Vocabolario Unico (Types):</strong> <span>489</span></div>
+<div class="card-item"><strong>Ricchezza Lessicale (TTR):</strong> <span>0.5476</span></div>
+<div class="card-item"><strong>Indice Gulpease:</strong> <span>61.94</span></div>
+<div class="card-item"><strong>Parole/Frase (Media):</strong> <span>11.91</span></div>
+<div class="card-item"><strong>Lunghezza Media Parola:</strong> <span>4.81</span></div>
+<div class="card-item"><strong>% Sostantivi:</strong> <span>23.74</span></div>
+<div class="card-item"><strong>% Verbi:</strong> <span>14.0</span></div>
+<div class="card-item"><strong>% Aggettivi:</strong> <span>6.61</span></div>
+<div class="card-item"><strong>% Pronomi:</strong> <span>4.59</span></div>
+</div>
+</div>
+
+    </div>
+
+    <hr>
+    <p style="font-size: 0.85em; color: #777;">
+        Report finale generato automaticamente in conformità con la fase di sintesi e visualizzazione dei dati (Capitoli 7 e 8).
+    </p>
+
+    <script>
+    function filtraSchede() {
+        var input = document.getElementById("searchInput");
+        var filter = input.value.toLowerCase();
+        var container = document.getElementById("cardsContainer");
+        var cards = container.getElementsByClassName("script-card");
+
+        for (var i = 0; i < cards.length; i++) {
+            var searchText = cards[i].getAttribute("data-search-text");
+            if (searchText.indexOf(filter) > -1) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+    </script>
+</body>
+</html>
+    
